@@ -15,8 +15,6 @@ final class PipelineSkip<T>: PipelineStage<T> {
   }
 
   override func consume(_ value: T) -> PipelineStageConsumptionResult {
-    defer { isFinished = count <= 0 }
-
     if count > 0 {
       count -= 1
       return .continue
