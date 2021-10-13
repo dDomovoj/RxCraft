@@ -20,15 +20,11 @@ final class Rx<Value> {
   init?(_ builder: RxBuilder<Value>, value: Value) {
     guard let callback = builder.block else { return nil }
 
-    pipeline = builder.pipeline()
+    pipeline = builder.pipeline
     self.queue = builder.queue
     self.callback = callback
 
     if consume(value) { return nil }
-  }
-
-  deinit {
-    debugLog(self)
   }
 
   /// returns true if sequence is finished
