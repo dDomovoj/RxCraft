@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name = 'RxCraft'
-    s.version = '0.0.1'
+    s.version = '0.0.2'
     s.summary = 'Lightweight Reactive lib'
     s.swift_version = '5.4'
   
