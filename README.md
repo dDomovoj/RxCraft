@@ -10,3 +10,24 @@ $value.filter { $0.isEven }
   .take(1)    // Takes only one value then finishes
   .subscribe(on: .main) { value in ... }
 ```
+
+Also observable from protocol via:
+```
+protocol ISomeActivity {
+
+  var observable: RxCraft.RxBuilder<Int> { get }
+
+}
+
+struct SomeActivity: ISomeActitivity {
+
+  private @RxCraft.Property var value: Int = 0
+  
+  var observable: RxCraft.RxBuilder<Int> { $value }
+
+}
+...
+let activity: ISomeActivity
+activity.observable.subscribe { ... }
+
+```
